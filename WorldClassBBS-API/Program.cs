@@ -7,8 +7,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add db
 builder.Services.AddDbContext<DataContext>();
-//Add Cors
-builder.Services.AddCors();
+
+//Cors policies
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins(
+                    "https://localhost:7150",
+                    "http://localhost:5150",
+                    "https://localhost:7100",
+                    "http://localhost:5100")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,7 +33,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication("Bearer").AddIdentityServerAuthentication("Bearer", options =>
 {
     options.ApiName = "WorldClassBBS";
-    options.Authority = "https://localhost:7206";
+    options.Authority = "https://localhost:7150";
 });
 
 //Configure AutoMapper
@@ -47,10 +62,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 //Cors policies
-app.UseCors(x => x
+//app.UseCors();
+/*
+    x => x
     .AllowAnyOrigin()
     .AllowAnyMethod()
-    .AllowAnyHeader());
+    .AllowAnyHeader());*/
 
 // global error handler
 app.UseMiddleware<ErrorHandlerMiddleware>();
