@@ -45,6 +45,8 @@ namespace WorldClassBBS.Controllers
             var boards = _boardService.GetBoards(index, count, sort);
             return Ok(boards);
         }
+
+        [Authorize]
         [HttpPost("new")]
         public IActionResult CreateBoard(NewBoard model)
         {

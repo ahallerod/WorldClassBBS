@@ -14,13 +14,13 @@ namespace IdentityServer.Config
                 {
                     new TestUser
                     {
-                        Username = "Erika33",
-                        Password =  "1234",
-                        SubjectId = "11",
+                        Username = "BlackKnight",
+                        Password =  "test123",
+                        SubjectId = "1",
                         Claims =
                         {
 
-                            new Claim(JwtClaimTypes.Name," Erika")
+                            new Claim(JwtClaimTypes.Name," BlackKnight")
 
                         }
 

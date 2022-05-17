@@ -32,6 +32,7 @@ namespace WorldClassBBS.Controllers
         public IActionResult Authenticate(AuthenticateRequest model)
         {
             var response = _userService.Authenticate(model);
+            this.HttpContext.Items["User"] = _userService.GetUserByName(model.Username);
             return Ok(response);
         }
 

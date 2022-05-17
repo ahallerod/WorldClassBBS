@@ -11,6 +11,7 @@ namespace WorldClassBBS.Services
         AuthenticateResponse Authenticate(AuthenticateRequest model);
         void Register(RegisterRequest model);
         User GetUserById(int id);
+        User GetUserByName(string name);
     }
     public class UserService : IUserService
     {
@@ -57,6 +58,14 @@ namespace WorldClassBBS.Services
         public User GetUserById(int id)
         {
             var user = _context.Users.Find(id);
+            if (user == null)
+                throw new KeyNotFoundException("User not found");
+            return user;
+        }
+
+        public User GetUserByName(string name)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Username.Equals(name));
             if (user == null)
                 throw new KeyNotFoundException("User not found");
             return user;
