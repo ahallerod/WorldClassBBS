@@ -9,7 +9,8 @@ namespace WorldClassBBS.Models.Boards
         public string Title { get; set; }
         public int NoOfPosts { get; set; }
         public int Views { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
+        public string CreatedTime { get; set; }
         public ViewUser CreatedByUser { get; set; }
     }
 }

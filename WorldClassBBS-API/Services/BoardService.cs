@@ -44,12 +44,13 @@ namespace WorldClassBBS.Services
             var board = _context.Boards.FirstOrDefault(x => x.BoardId == boardId);
             if (board == null)
                 throw new AppException("Board not found.");
-            var model = _mapper.Map<BoardWithPosts>(board);
-            model.CreatedByUser = _mapper.Map<ViewUser>(board.CreatedByUser);
+            var model = new BoardWithPosts();
+            model.Board = _mapper.Map<ViewShortBoard>(board);
+            model.Board.CreatedByUser = _mapper.Map<ViewUser>(board.CreatedByUser);
+            model.Board.NoOfPosts = _context.Posts.Where(x => x.BoardId == board.BoardId).Count();
             model.Posts = _mapper.Map<ViewPost[]>(
-                _context.Posts.Where(x => x.BoardId == board.BoardId).
-                AsEnumerable());
-
+                _context.Posts.Where(x => x.BoardId == board.BoardId)
+                .AsEnumerable());
 
             IncreaseNoOfViews(board);
             return model;

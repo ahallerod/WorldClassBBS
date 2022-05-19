@@ -14,7 +14,7 @@ export default class BoardControl extends React.Component {
     render() {
         switch (this.state.navigation) {
             case 'board-main':
-                return(<BoardOverview viewBoardCallback = {this.ViewBoard} />);
+                return(<BoardOverview viewBoardCallback = {this.viewBoardCallback} />);
 
             case 'view-board':
                 return(<ViewBoard boardID={this.state.viewboardID} />);

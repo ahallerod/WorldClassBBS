@@ -37,9 +37,7 @@ export default class BBS extends React.Component {
                         </td>
                     </tr>
                     <tr>
-                        <td colSpan="2">
-                            <BoardControl />
-                        </td>
+                        <BoardControl />
                     </tr>
                 </table>
             </div>

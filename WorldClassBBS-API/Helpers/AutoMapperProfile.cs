@@ -14,7 +14,9 @@ namespace WorldClassBBS.Helpers
             CreateMap<RegisterRequest, User>();
             CreateMap<User, ViewUser>();
 
-            CreateMap<Board, ViewShortBoard>();
+            CreateMap<Board, ViewShortBoard>()
+                .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate.ToShortDateString()))
+                .ForMember(dest => dest.CreatedTime, opt => opt.MapFrom(src => src.CreatedDate.ToShortTimeString()));
             CreateMap<Board, BoardWithPosts>();
             CreateMap<NewBoard, Board>();
 

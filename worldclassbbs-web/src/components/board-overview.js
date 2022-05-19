@@ -2,14 +2,16 @@ import React from "react";
 import CreateBoardControl from './board-create-new.js';
 
 class BoardOneliner extends React.Component {
+    onClickHandler = () => {
+        this.props.viewBoardCallback(this.props.board.boardId);
+    }
     render() {
         const board = this.props.board;
         return (
-            <tr>
-                <td>
-                    {board.title} created by {board.createdByUser.username}. {board.noOfPosts} replies, {board.views} views.
-                </td>
-            </tr>
+            <div className="boardlist" onClick={this.onClickHandler}>
+                <div>{board.title} created by {board.createdByUser.username}</div>
+                <div>{board.noOfPosts} replies, {board.views} views</div>
+            </div>
         )
     }
 }
@@ -26,7 +28,6 @@ export default class BoardOverview extends React.Component {
         this.getBoards = this.getBoards.bind(this);
     }
     componentDidMount() {
-        //this.setState( { boards: fetchApi('Board/?sort=' + this.state.sort)});
         this.setState({boards: this.getBoards()});
     }
 
@@ -69,7 +70,7 @@ export default class BoardOverview extends React.Component {
                 let i = 1;
                 data.forEach((board) => {
                     oneliners.push(
-                        <BoardOneliner board={board} key={i.toString()}/>
+                        <BoardOneliner board={board} viewBoardCallback = {this.props.viewBoardCallback} key={i.toString()} />
                     )
                     i++;
                 });
