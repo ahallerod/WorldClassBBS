@@ -7,7 +7,7 @@ class BoardOneliner extends React.Component {
         return (
             <tr>
                 <td>
-                    {board.title} created by {board.createdByUser.username}. {board.noOfPosts} posts, {board.views} views.
+                    {board.title} created by {board.createdByUser.username}. {board.noOfPosts} replies, {board.views} views.
                 </td>
             </tr>
         )
