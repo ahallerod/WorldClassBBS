@@ -33,6 +33,7 @@ namespace WorldClassBBS.Services
             var board = _mapper.Map<Board>(model);
             board.CreatedByUser = user;
             board.CreatedByUserId = user.UserId;
+            board.CreatedDate = DateTime.Now;
 
             _context.Add(board);
             _context.SaveChanges();

@@ -63,7 +63,7 @@ class Signin extends React.Component {
             });
             let resJson = await res.json();
             if (res.status === 200) {
-                localStorage.setItem("token", resJson.access_token);
+                localStorage.setItem("token", resJson.token);
                 this.props.onSuccessfulSignin(this.state.username);
             }
         } catch (error) {

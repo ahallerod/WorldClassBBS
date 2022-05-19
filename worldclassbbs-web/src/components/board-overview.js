@@ -1,5 +1,5 @@
 import React from "react";
-import fetchApi from './helpers/api.js';
+import CreateBoardControl from './board-create-new.js';
 
 class BoardOneliner extends React.Component {
     render() {
@@ -14,53 +14,7 @@ class BoardOneliner extends React.Component {
     }
 }
 
-class CreateBoardControl extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { isInputVisible: false }
-        this.handleToggleClick = this.handleToggleClick.bind(this);
-    }
 
-    handleToggleClick() {
-        this.setState(state => ({
-            isInputVisible: !state.isInputVisible
-        }));
-    }
-
-    render() {
-        return (
-            <table>
-                <thead>
-                    <tr onClick={this.handleToggleClick}><td colspan="2">Create New Board</td></tr>
-                </thead>
-                <CreateNewBoard isInputVisible={this.state.isInputVisible} />
-            </table>
-        )
-    }
-}
-
-class CreateNewBoard extends React.Component {
-    render() {
-        if (this.props.isInputVisible) {
-            return (
-                <tbody>
-                    <tr>
-                        <td>Title:</td>
-                        <td><input type="text" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <textarea></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button>Create</button></td>
-                    </tr>
-                </tbody>
-            )
-        }
-    }
-}
 
 export default class BoardOverview extends React.Component {
     constructor() {
@@ -69,25 +23,23 @@ export default class BoardOverview extends React.Component {
             boards: [],
             sort: 'date',
         }
+        this.getBoards = this.getBoards.bind(this);
     }
     componentDidMount() {
-        this.setState( { boards: fetchApi('Board/?sort=' + this.state.sort)});
+        //this.setState( { boards: fetchApi('Board/?sort=' + this.state.sort)});
+        this.setState({boards: this.getBoards()});
     }
+
     render() {
-        const rows = [];
 
-        /*this.state.boards.forEach((board) => {
-            rows.push(
-                <BoardOneliner board={board} />
-            )
 
-        });*/
+
 
         return (
             <div>
                 <table border="1">
                     <tbody>
-                        {rows}
+                        {this.state.rows}
                     </tbody>
                     <tfoot>
                         <tr>
@@ -99,5 +51,30 @@ export default class BoardOverview extends React.Component {
                 </table>
             </div>
         )
+    }
+    
+    //API METHODS
+
+    getBoards() {
+        const token = localStorage.getItem("token");
+        fetch('http://localhost:5100/Board/?sort=' + this.state.sort, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Token': token,
+            }})
+            .then(response => response.json())
+            .then(data => {
+                const oneliners = [];
+                let i = 1;
+                data.forEach((board) => {
+                    oneliners.push(
+                        <BoardOneliner board={board} key={i.toString()}/>
+                    )
+                    i++;
+                });
+                this.setState({rows : oneliners});
+            })
+            .catch(console.error);
     }
 }

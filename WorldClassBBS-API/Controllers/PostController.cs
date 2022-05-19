@@ -11,7 +11,6 @@ using WorldClassBBS.Services;
 
 namespace WorldClassBBS.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PostController : ControllerBase

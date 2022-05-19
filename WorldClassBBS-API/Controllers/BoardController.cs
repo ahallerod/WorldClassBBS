@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
+using WorldClassBBS.Authorization;
 using WorldClassBBS.Entities;
 using WorldClassBBS.Helpers;
 using WorldClassBBS.Models.Boards;
@@ -35,7 +35,6 @@ namespace WorldClassBBS.Controllers
             return Ok(board);
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult GetBoards(int index = 0, int count = 10, string sort = "date")
         {
@@ -46,12 +45,10 @@ namespace WorldClassBBS.Controllers
             return Ok(boards);
         }
 
-        [Authorize]
         [HttpPost("new")]
         public IActionResult CreateBoard(NewBoard model)
         {
             var user = (User)HttpContext.Items["User"];
-            Console.WriteLine(user.Username);
             _boardService.CreateBoard(model, user);
             return Ok();
         }

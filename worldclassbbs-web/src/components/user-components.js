@@ -7,7 +7,7 @@ class UserSnippet extends React.Component {
             <table>
                 <tr>
                     <td>
-                        Logged in as user <br />
+                        Logged in as user: <br />
                         <b>{this.props.username}</b>
                     </td>
                 </tr>

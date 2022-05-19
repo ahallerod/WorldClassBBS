@@ -6,6 +6,7 @@ export default class BoardControl extends React.Component {
         super();
         this.state = {
             navigation: 'board-main',
+            viewboardID: null,
 
         }
     }
@@ -26,29 +27,3 @@ export default class BoardControl extends React.Component {
     
 
 }
-
-
-//TEST DATA
-
-const boards = [
-    {
-        "boardId": 1,
-        "title": "The first board in the BBS",
-        "noOfPosts": 4,
-        "views": 8,
-        "createdDate": "0001-01-01T00:00:00",
-        "createdByUser": {
-            "username": "BlackKnight"
-        }
-    },
-    {
-        "boardId": 2,
-        "title": "The second board in the BBS",
-        "noOfPosts": 0,
-        "views": 0,
-        "createdDate": "0001-01-01T00:00:00",
-        "createdByUser": {
-            "username": "BlackKnight"
-        }
-    }
-]

@@ -35,7 +35,7 @@ class Registration extends React.Component {
             <div className='Registration'>
                 <form onSubmit={this.handleRegistration}>
                     <h2>Register new User</h2>
-                    <label for="username">Username</label>
+                    <label>Username</label>
                     <input
                         type="text"
                         id="username"
@@ -44,7 +44,7 @@ class Registration extends React.Component {
                         required
                         pattern="[A-Za-z0-9]{4,30}"
                     />
-                    <label for="password">Password</label>
+                    <label>Password</label>
                     <input
                         type="password"
                         id="password"
