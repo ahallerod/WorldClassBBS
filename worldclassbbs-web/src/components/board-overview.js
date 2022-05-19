@@ -1,4 +1,5 @@
 import React from "react";
+import fetchApi from './helpers/api.js';
 
 class BoardOneliner extends React.Component {
     render() {
@@ -62,16 +63,25 @@ class CreateNewBoard extends React.Component {
 }
 
 export default class BoardOverview extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            boards: [],
+            sort: 'date',
+        }
+    }
+    componentDidMount() {
+        this.setState( { boards: fetchApi('Board/?sort=' + this.state.sort)});
+    }
     render() {
         const rows = [];
 
-        this.props.bbs.forEach((board) => {
+        /*this.state.boards.forEach((board) => {
             rows.push(
-                <BoardOneliner
-                    board={board} />
+                <BoardOneliner board={board} />
             )
 
-        });
+        });*/
 
         return (
             <div>

@@ -1,5 +1,6 @@
 using WorldClassBBS.Services;
 using WorldClassBBS.Helpers;
+using WorldClassBBS.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,32 +10,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataContext>();
 
 //Cors policies
-builder.Services.AddCors(options =>
+builder.Services.AddCors();
+/*(options =>
 {
     options.AddDefaultPolicy(
         policy =>
         {
             policy.WithOrigins(
-                    "https://localhost:7150",
-                    "http://localhost:5150",
+                    "http://localhost:3000",
                     "https://localhost:7100",
                     "http://localhost:5100")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
-});
+});*/
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Authentication
+//Identity Server Authentication
+/*
 builder.Services.AddAuthentication("Bearer").AddIdentityServerAuthentication("Bearer", options =>
 {
     options.ApiName = "WorldClassBBS";
     options.Authority = "https://localhost:7150";
 });
+*/
 
 //Configure AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
@@ -42,6 +45,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 //configure DI for services
+builder.Services.AddScoped<IJwtUtilities, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBoardService, BoardService>();
 builder.Services.AddScoped<IPostService, PostService>();
@@ -56,21 +60,21 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
+//app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 //Cors policies
-//app.UseCors();
-/*
-    x => x
-    .AllowAnyOrigin()
+app.UseCors(x => x
+    .WithOrigins("http://localhost:3000")
     .AllowAnyMethod()
-    .AllowAnyHeader());*/
+    .AllowAnyHeader());
 
 // global error handler
 app.UseMiddleware<ErrorHandlerMiddleware>();
+
+// custom jwt auth middleware
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using WorldClassBBS.Authorization;
 using WorldClassBBS.Entities;
 using WorldClassBBS.Helpers;
 using WorldClassBBS.Models.Users;
@@ -17,27 +18,32 @@ namespace WorldClassBBS.Services
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
+        private readonly IJwtUtilities _jwtUtils;
 
         public UserService(
             DataContext context,
-            IMapper mapper)
+            IMapper mapper,
+            IJwtUtilities jwtUtils)
         {
             _context = context;
             _mapper = mapper;
+            _jwtUtils = jwtUtils;
         }
 
-        
+
+
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var user = _context.Users.FirstOrDefault(x => x.Username == model.Username);
 
             //validation
             if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
-                throw new AppException("Username or Password in incorrect.");
+                throw new InvalidCredentialsException("Username or Password in incorrect.");
 
             UpdateLastLoginDate(user.UserId);
 
             var response = _mapper.Map<AuthenticateResponse>(user);
+            response.Token = _jwtUtils.GenerateToken(user);
 
             return response;
         }

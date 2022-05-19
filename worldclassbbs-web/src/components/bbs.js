@@ -1,5 +1,5 @@
 import React from "react";
-import BoardOverview from './board-components.js';
+import BoardControl from './board-control.js';
 import LoginControl from "./signin.js";
 import UserSnippet from "./user-components.js";
 
@@ -10,9 +10,9 @@ export default class BBS extends React.Component {
             loggedIn: false,
             username: '',
         }
-        this.successfulLogin = this.successfulLogin.bind(this);
+        this.onSuccessfulSignin = this.successfulSignin.bind(this);
     }
-    successfulLogin(username) {
+    successfulSignin(username) {
         this.setState({
             username: username,
             loggedIn: true,
@@ -22,7 +22,7 @@ export default class BBS extends React.Component {
     render() {
         if (!this.state.loggedIn) {
             return (
-                <LoginControl onSuccessfulLogin={this.successfulLogin} />
+                <LoginControl onSuccessfulSignin={this.onSuccessfulSignin} />
             )
         }
         return (
@@ -38,7 +38,7 @@ export default class BBS extends React.Component {
                     </tr>
                     <tr>
                         <td colSpan="2">
-                            <BoardOverview bbs={boards} />
+                            <BoardControl />
                         </td>
                     </tr>
                 </table>
@@ -47,26 +47,3 @@ export default class BBS extends React.Component {
     }
 
 }
-
-const boards = [
-    {
-        "boardId": 1,
-        "title": "The first board in the BBS",
-        "noOfPosts": 4,
-        "views": 8,
-        "createdDate": "0001-01-01T00:00:00",
-        "createdByUser": {
-            "username": "BlackKnight"
-        }
-    },
-    {
-        "boardId": 2,
-        "title": "The second board in the BBS",
-        "noOfPosts": 0,
-        "views": 0,
-        "createdDate": "0001-01-01T00:00:00",
-        "createdByUser": {
-            "username": "BlackKnight"
-        }
-    }
-]

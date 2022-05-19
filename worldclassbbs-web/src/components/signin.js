@@ -51,7 +51,7 @@ class Signin extends React.Component {
     async handleSignin(e) {
         e.preventDefault();
         try {
-            let res = await fetch("http://localhost:5100/user/signin", {
+            let res = await fetch("http://localhost:5100/User/signin", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
