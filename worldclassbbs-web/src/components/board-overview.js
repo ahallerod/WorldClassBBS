@@ -8,10 +8,10 @@ class BoardOneliner extends React.Component {
     render() {
         const board = this.props.board;
         return (
-            <div className="boardlist" onClick={this.onClickHandler}>
+            <li className="board-item" onClick={this.onClickHandler}>
                 <div>{board.title} created by {board.createdByUser.username}</div>
                 <div>{board.noOfPosts} replies, {board.views} views</div>
-            </div>
+            </li>
         )
     }
 }
@@ -32,16 +32,11 @@ export default class BoardOverview extends React.Component {
     }
 
     render() {
-
-
-
-
         return (
-            <div>
-                <table border="1">
-                    <tbody>
+                <div>
+                    <ul>
                         {this.state.rows}
-                    </tbody>
+                    </ul>
                     <tfoot>
                         <tr>
                             <td>
@@ -49,8 +44,7 @@ export default class BoardOverview extends React.Component {
                             </td>
                         </tr>
                     </tfoot>
-                </table>
-            </div>
+                </div>
         )
     }
     

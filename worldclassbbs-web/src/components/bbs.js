@@ -36,7 +36,7 @@ export default class BBS extends React.Component {
                             <UserSnippet username={this.state.username} />
                         </td>
                     </tr>
-                    <tr>
+                    <tr colSpan="2">
                         <BoardControl />
                     </tr>
                 </table>

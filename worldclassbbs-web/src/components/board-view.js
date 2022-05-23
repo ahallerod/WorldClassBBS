@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavBarViewBoard} from './nav-bar.js';
+import NewPostControl from './post-create-new.js'
 
 export default class ViewBoard extends React.Component {
     constructor(props) {
@@ -6,14 +8,16 @@ export default class ViewBoard extends React.Component {
         this.state = {
             board: null,
             posts: null,
+            boardId: null,
         }
     }
     render(){
         return (
             <div>
+                <NavBarViewBoard viewBoardMain={this.props.viewBoardMain} />
                 <ViewBoardHeader board={this.state.board} />
                 <ListPosts posts={this.state.posts} />
-                <ReplyToBoard />
+                <NewPostControl boardId={this.state.boardId} />
             </div>
         )
     }
@@ -34,6 +38,7 @@ export default class ViewBoard extends React.Component {
                 this.setState({
                     board: data.board,
                     posts: data.posts,
+                    boardId: data.board.boardId,
                 });
             })
             .catch(console.error);
@@ -71,40 +76,32 @@ class ViewBoardHeader extends React.Component {
 class ListPosts extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            renderposts: [],
+        }
     }
     render(){
-        return (
-
-            <ViewPost />
-
-        )
+        if(this.props.posts != null && this.props.posts.length > 0) {
+            let posts = [];
+            let i = 1;
+            this.props.posts.forEach((post) => {
+                posts.push(
+                    <ViewPost post={post} key={i.toString()} />
+                )
+                i++;
+            });
+            return ( <div>{posts}</div> );
+        } else {
+            return (<div>No Posts in this Board!</div>);
+        }
     }
 }
 
 class ViewPost extends React.Component {
     render(){
         return(
-            <div>post</div>
+            <div>{this.props.post.message} by {this.props.post.createdByUser.username}</div>
         )
     }
 
-}
-
-class ReplyToBoard extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            message: ''
-
-        }
-    }
-    render(){
-        return(
-            <div>
-                <form>
-
-                </form>
-            </div>
-        )
-    }
 }

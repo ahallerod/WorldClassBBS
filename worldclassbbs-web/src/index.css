@@ -3,6 +3,8 @@ body {
     font-family: monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: grid;
+    justify-items: center;
 }
 
 code {

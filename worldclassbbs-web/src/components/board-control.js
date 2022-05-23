@@ -17,7 +17,7 @@ export default class BoardControl extends React.Component {
                 return(<BoardOverview viewBoardCallback = {this.viewBoardCallback} />);
 
             case 'view-board':
-                return(<ViewBoard boardID={this.state.viewboardID} />);
+                return(<ViewBoard boardID={this.state.viewboardID} viewBoardMain={this.viewBoardMain}/>);
             default:
                 return(<BoardOverview />);
         }
@@ -27,7 +27,12 @@ export default class BoardControl extends React.Component {
         this.setState({
             navigation: 'view-board',
             viewboardID: boardID,
-        })
+        });
+    }
+    viewBoardMain = () => {
+        this.setState({
+            navigation: 'board-main'
+        });
     }
     
 
