@@ -1,5 +1,4 @@
 import React from 'react';
-import { UserContext } from '../App.js';
 import Registration from './registration.js';
 import Logo from './logo.js';
 
@@ -21,7 +20,7 @@ class LoginControl extends React.Component {
     render() {
         if (this.state.showRegistration) {
             return (
-                <div>
+                <div className="login-grid">
                     <Logo />
                     <Registration />
                     <button onClick={this.handleToggleClick}>Already have an account? Signin!</button>
@@ -30,7 +29,7 @@ class LoginControl extends React.Component {
         }
         else {
             return (
-                <div>
+                <div className="login-grid">
                     <Logo />
                     <Signin onSuccessfulSignin={this.props.onSuccessfulSignin} />
                     <button onClick={this.handleToggleClick}>No account? Register!</button>
@@ -46,6 +45,7 @@ class Signin extends React.Component {
         this.state = {
             username: '',
             password: '',
+            failedSignin: false
         };
         this.handleSignin = this.handleSignin.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -68,6 +68,10 @@ class Signin extends React.Component {
             if (res.status === 200) {
                 localStorage.setItem("token", resJson.token);
                 this.props.onSuccessfulSignin(this.state.username);
+            } else if (res.status === 401) {
+                this.setState({
+                    failedSignin: true,
+                });
             }
         } catch (error) {
 
@@ -84,32 +88,33 @@ class Signin extends React.Component {
 
     render() {
         return (
-            <UserContext.Provider value={this.state.username}>
-                <div className='Login'>
-                    <form onSubmit={this.handleSignin}>
-                        <h2>Signin</h2>
-                        <label for="username">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <label for="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <input type="submit" value="Sign in"></input>
-                    </form>
-                </div>
-            </UserContext.Provider>
+            <div className='login-grid'>
+                <h2>Signin</h2>
+                <form onSubmit={this.handleSignin}>
+                    <label>Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <button type="submit">Sign in</button>
+                </form>
+                {this.state.failedSignin &&
+                    <span className="warning">Username or Password incorrect.</span>
+                }   
+            </div>
         );
     }
 }

@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: monospace;
+    font-size: 12px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: grid;
@@ -19,9 +20,54 @@ code {
     width: 550px;
 }
 
+.App {
+    border: 1px solid white;
+}
+
 #wrapper-table {
     width: 100%;
+}
+
+button {
     border: 1px solid white;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+input {
+    background-color: black;
+    color: white;
+    border:0px;
+    border-bottom: 1px solid white;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.logo {
+    background-color: white;
+    color: black;
+}
+
+.login-grid{
+    display: flex;
+    flex-direction: column;
+}
+.login-grid form {
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: min-content;
+    justify-items: end;
+    align-self: center;
+}
+.login-grid form button {
+    grid-column-start: 2;
 }
 
 .board-overview {
@@ -30,6 +76,13 @@ code {
 
 
 
+
+
 .bottom-border {
     border-bottom: 1px solid white;
+}
+
+.black {
+    background-color: black;
+    color:white;
 }

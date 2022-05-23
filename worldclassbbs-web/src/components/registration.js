@@ -32,36 +32,40 @@ class Registration extends React.Component {
 
     render() {
         return (
-            <div className='Registration'>
+            <div className='login-grid'>
+                <h2>Register new User</h2>
                 <form onSubmit={this.handleRegistration}>
-                    <h2>Register new User</h2>
-                    <label>Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={this.username}
-                        required
-                        pattern="[A-Za-z0-9]{4,30}"
-                    />
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={this.password}
-                        required
-                        pattern="[A-Za-z0-9]{4,100}"
-                    />
-                    <label for="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={this.email}
-                        required
-                    />
-                    <input type="submit" value="Register"></input>
+                        <label>Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={this.username}
+                            required
+                            pattern="[A-Za-z0-9]{4,30}"
+                        />                        
+
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={this.password}
+                            required
+                            pattern="[A-Za-z0-9]{4,100}"
+                        />                      
+
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={this.email}
+                            required
+                        />                      
+
+
+                    <button type="submit">Register</button>
                 </form>
             </div>
         )
