@@ -2,6 +2,7 @@ import React from "react";
 import BoardControl from './board-control.js';
 import LoginControl from "./signin.js";
 import UserSnippet from "./user-components.js";
+import Logo from './logo.js'
 
 export default class BBS extends React.Component {
     constructor(props) {
@@ -27,12 +28,12 @@ export default class BBS extends React.Component {
         }
         return (
             <div>
-                <table border="1">
+                <table id="wrapper-table">
                     <tr>
-                        <td>
-                            <h1>World Class BBS System</h1>
+                        <td className="bottom-border">
+                            <Logo />
                         </td>
-                        <td>
+                        <td className="bottom-border">
                             <UserSnippet username={this.state.username} />
                         </td>
                     </tr>

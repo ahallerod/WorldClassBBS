@@ -20,7 +20,9 @@ export default class CreateBoardControl extends React.Component {
         return (
             <table>
                 <thead>
-                    <tr onClick={this.handleToggleClick}><td colspan="2">Create New Board</td></tr>
+                    <tr onClick={this.handleToggleClick}>
+                        <td>Create New Board</td>
+                    </tr>
                 </thead>
                 <CreateNewBoard isInputVisible={this.state.isInputVisible} />
             </table>

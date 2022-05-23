@@ -1,23 +1,6 @@
 import React from "react";
 import CreateBoardControl from './board-create-new.js';
 
-class BoardOneliner extends React.Component {
-    onClickHandler = () => {
-        this.props.viewBoardCallback(this.props.board.boardId);
-    }
-    render() {
-        const board = this.props.board;
-        return (
-            <li className="board-item" onClick={this.onClickHandler}>
-                <div>{board.title} created by {board.createdByUser.username}</div>
-                <div>{board.noOfPosts} replies, {board.views} views</div>
-            </li>
-        )
-    }
-}
-
-
-
 export default class BoardOverview extends React.Component {
     constructor() {
         super();
@@ -33,19 +16,15 @@ export default class BoardOverview extends React.Component {
 
     render() {
         return (
-                <div>
-                    <ul>
-                        {this.state.rows}
-                    </ul>
-                    <tfoot>
-                        <tr>
-                            <td>
-                                <CreateBoardControl />
-                            </td>
-                        </tr>
-                    </tfoot>
+            <div className="board-overview">
+                <ul>
+                    {this.state.rows}
+                </ul>
+                <div className="create-new-board">
+                    <CreateBoardControl />
                 </div>
-        )
+            </div>
+        );
     }
     
     //API METHODS
@@ -71,5 +50,20 @@ export default class BoardOverview extends React.Component {
                 this.setState({rows : oneliners});
             })
             .catch(console.error);
+    }
+}
+
+class BoardOneliner extends React.Component {
+    onClickHandler = () => {
+        this.props.viewBoardCallback(this.props.board.boardId);
+    }
+    render() {
+        const board = this.props.board;
+        return (
+            <li className="board-item" onClick={this.onClickHandler}>
+                <div>{board.title} created by {board.createdByUser.username}</div>
+                <div>{board.noOfPosts} replies, {board.views} views</div>
+            </li>
+        )
     }
 }

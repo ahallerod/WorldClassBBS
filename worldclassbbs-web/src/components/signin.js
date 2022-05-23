@@ -1,6 +1,7 @@
 import React from 'react';
 import { UserContext } from '../App.js';
-import Registration from './registration.js'
+import Registration from './registration.js';
+import Logo from './logo.js';
 
 class LoginControl extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class LoginControl extends React.Component {
         if (this.state.showRegistration) {
             return (
                 <div>
+                    <Logo />
                     <Registration />
                     <button onClick={this.handleToggleClick}>Already have an account? Signin!</button>
                 </div>
@@ -29,6 +31,7 @@ class LoginControl extends React.Component {
         else {
             return (
                 <div>
+                    <Logo />
                     <Signin onSuccessfulSignin={this.props.onSuccessfulSignin} />
                     <button onClick={this.handleToggleClick}>No account? Register!</button>
                 </div>

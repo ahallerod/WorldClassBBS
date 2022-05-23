@@ -5,8 +5,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
     display: grid;
     justify-items: center;
+    margin-top: 15%;
+    background-color: black;
+    color:white;
+    height: 100vh;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+    width: 550px;
+}
+
+#wrapper-table {
+    width: 100%;
+    border: 1px solid white;
+}
+
+.board-overview {
+    width: 100%;
+}
+
+
+
+.bottom-border {
+    border-bottom: 1px solid white;
 }
