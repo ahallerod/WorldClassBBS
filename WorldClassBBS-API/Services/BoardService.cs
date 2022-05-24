@@ -13,7 +13,7 @@ namespace WorldClassBBS.Services
         public BoardWithPosts GetBoardById(int boardId);
         public IEnumerable<ViewShortBoard> GetBoards(int index, int count, string sort);
         public void EditBoard();
-        public void DeleteBoard();
+        public void ArchiveBoard(int boardId, int userId);
     }
     public class BoardService : IBoardService
     {
@@ -81,7 +81,7 @@ namespace WorldClassBBS.Services
             throw new NotImplementedException();
         }
 
-        public void DeleteBoard(int boardId, int userId)
+        public void ArchiveBoard(int boardId, int userId)
         {
             var board = _context.Boards.Where(x => x.BoardId == boardId).FirstOrDefault();
             //verify that the user requesting the achiving is actually the creator of the board.

@@ -52,5 +52,13 @@ namespace WorldClassBBS.Controllers
             _boardService.CreateBoard(model, user);
             return Ok();
         }
+
+        [HttpDelete("archive")]
+        public IActionResult ArchiveBoard(int boardId)
+        {
+            if (HttpContext.Items["User"] is User user)
+                _boardService.ArchiveBoard(boardId, user.UserId);
+            return Ok();
+        }
     }
 }
