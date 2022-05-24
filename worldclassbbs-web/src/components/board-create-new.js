@@ -18,14 +18,12 @@ export default class CreateBoardControl extends React.Component {
 
     render() {
         return (
-            <table>
-                <thead>
-                    <tr onClick={this.handleToggleClick}>
-                        <td>Create New Board</td>
-                    </tr>
-                </thead>
+            <div>
+                <button onClick={this.handleToggleClick} className="toggle-button">
+                    Create New Board
+                </button>
                 <CreateNewBoard isInputVisible={this.state.isInputVisible} />
-            </table>
+            </div>
         )
     }
 }
@@ -42,51 +40,43 @@ class CreateNewBoard extends React.Component {
     render() {
         if (this.props.isInputVisible) {
             return (
-                <tbody>
-                    <tr>
-                        <td>
-                            <form onSubmit={this.addBoard}>
-                                <label>Title:</label>
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    value={this.state.title}
-                                    required
-                                    maxLength={70}
-                                    minLength={5}
-                                    onChange={this.handleInputChange}
-                                />
-                                <input type="submit" value="Create"></input>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
+                <div className='form-grid'>
+                    <form onSubmit={this.addBoard}>
+                        <label>Title:</label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={this.state.title}
+                            required
+                            maxLength={70}
+                            minLength={5}
+                            onChange={this.handleInputChange}
+                        />
+                        <button type="submit">Create</button>
+                    </form>                
+                </div>
             )
         }
     }
 
     async addBoard(e) {
         e.preventDefault();
-        try {
-            const token = localStorage.getItem("token");
-            let res = fetch('http://localhost:5100/Board/new', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Token': token,
-                },
-                body: JSON.stringify({
-                    title: this.state.title,
-                }),
-            });
-            
-            this.setState({
-                title: '',
-            });
-        } catch (error) {
-
-        }
+        const token = localStorage.getItem("token");
+        fetch('http://localhost:5100/Board/new', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Token': token,
+            },
+            body: JSON.stringify({
+                title: this.state.title,
+            }),
+        });
+        
+        this.setState({
+            title: '',
+        });
     }
 
     handleInputChange(e) {

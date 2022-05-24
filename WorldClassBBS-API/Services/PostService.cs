@@ -38,6 +38,7 @@ namespace WorldClassBBS.Services
 
             post.CreatedByUser = user;
             post.CreatedByUserId = user.UserId;
+            post.CreatedDate = DateTime.Now;
 
             _context.Posts.Add(post);
             _context.SaveChanges();

@@ -20,12 +20,10 @@ code {
     width: 550px;
 }
 
-.App {
-    border: 1px solid white;
-}
 
-#wrapper-table {
+#wrapper {
     width: 100%;
+    border: 1px solid white;
 }
 
 button {
@@ -52,13 +50,26 @@ input {
 .logo {
     background-color: white;
     color: black;
+    font-size: 28px;
+}
+.logo div {
+    display: inline-block;
+    padding: 0.5em;
+    background-color: black;
+    color:white;
 }
 
-.login-grid{
+.user-snippet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-grid {
     display: flex;
     flex-direction: column;
 }
-.login-grid form {
+.form-grid form {
     margin-bottom: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -66,23 +77,82 @@ input {
     justify-items: end;
     align-self: center;
 }
-.login-grid form button {
+.form-grid input, label {
+    margin: .5em 0px;
+}
+.form-grid button {
     grid-column-start: 2;
 }
 
-.board-overview {
+.bbs-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.board-grid {
+    grid-column:  1/3;
+}
+.board-grid ul {
+    text-align: start;
+    list-style: none;
+    padding: 0;
+    margin: 1em;
+}
+.board-grid ul li:hover {
+    color:black;
+    background-color: white;
+}
+.board-grid ul li div:first-child {
+    font-weight: bolder;
+    font-size: larger;
+}
+.board-grid ul li div:last-child {
+    padding-left: 3em;
+}
+
+.nav-bar {
+    display: flex;
+    padding: 3px;
+    border-bottom: 1px solid white;
+    gap: 3px;
+}
+
+.board-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board-header div {
+    margin: 0 1em;
+}
+.board-header div:first-child {
+    flex: 3;
+}
+
+.toggle-button {
     width: 100%;
 }
 
 
 
+.no-posts {
+    font-weight: 900;
+    font-size: larger;
+    margin: 2em 0;
+    text-decoration:underline;
+}
 
+.warning {
+    color:red;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
 
 .bottom-border {
     border-bottom: 1px solid white;
 }
 
-.black {
-    background-color: black;
-    color:white;
+.copyright {
+    text-align: end;
+    margin-top: 3px;
 }

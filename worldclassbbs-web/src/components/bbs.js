@@ -23,24 +23,19 @@ export default class BBS extends React.Component {
     render() {
         if (!this.state.loggedIn) {
             return (
-                <LoginControl onSuccessfulSignin={this.onSuccessfulSignin} />
+                <div id="wrapper">
+                    <LoginControl onSuccessfulSignin={this.onSuccessfulSignin} />
+                </div>
             )
         }
         return (
-            <div>
-                <table id="wrapper-table">
-                    <tr>
-                        <td className="bottom-border">
-                            <Logo />
-                        </td>
-                        <td className="bottom-border">
-                            <UserSnippet username={this.state.username} />
-                        </td>
-                    </tr>
-                    <tr colSpan="2">
-                        <BoardControl />
-                    </tr>
-                </table>
+            <div id="wrapper">
+                <div className="bbs-grid">
+                    <Logo />
+                    <UserSnippet username={this.state.username} />
+                    <BoardControl />           
+                </div>
+
             </div>
         );
     }

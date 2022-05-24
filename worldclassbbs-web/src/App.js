@@ -9,6 +9,7 @@ function App() {
 
         <div className="App">
             <BBS />
+            <div className='copyright'>© 2022 Andreas Halleröd</div>
         </div>
     );
 }

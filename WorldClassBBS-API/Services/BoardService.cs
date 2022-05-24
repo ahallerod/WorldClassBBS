@@ -81,9 +81,20 @@ namespace WorldClassBBS.Services
             throw new NotImplementedException();
         }
 
-        public void DeleteBoard()
+        public void DeleteBoard(int boardId, int userId)
         {
-            throw new NotImplementedException();
+            var board = _context.Boards.Where(x => x.BoardId == boardId).FirstOrDefault();
+            //verify that the user requesting the achiving is actually the creator of the board.
+            if ( board != null && board.CreatedByUser.UserId == userId)
+            {
+                board.IsArchived = true;
+                _context.Update(board);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new AppException("User not authorized to archive board");
+            }
         }
 
 

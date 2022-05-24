@@ -42,6 +42,8 @@ namespace WorldClassBBS.Helpers
                         response.StatusCode= (int)HttpStatusCode.InternalServerError;
                         break;
                 }
+                var result = JsonSerializer.Serialize(new { errorMessage = error?.Message });
+                await response.WriteAsync(result);
             }
         }
     }

@@ -10,18 +10,23 @@ export default class ViewBoard extends React.Component {
             posts: null,
             boardId: null,
         }
+        this.refresh = this.refresh.bind(this);
     }
     render(){
         return (
-            <div>
-                <NavBarViewBoard viewBoardMain={this.props.viewBoardMain} />
+            <div className='board-grid'>
+                <NavBarViewBoard viewBoardMain={this.props.viewBoardMain} refresh={this.refresh} />
                 <ViewBoardHeader board={this.state.board} />
                 <ListPosts posts={this.state.posts} />
-                <NewPostControl boardId={this.state.boardId} />
+                <NewPostControl boardId={this.state.boardId} onSubmit={this.refresh} />
             </div>
         )
     }
     componentDidMount(){
+        this.getBoards();
+    }
+
+    refresh() {
         this.getBoards();
     }
 
@@ -46,28 +51,21 @@ export default class ViewBoard extends React.Component {
 }
 
 class ViewBoardHeader extends React.Component {
-    constructor(props){
-        super(props);
-    }
     render() {
         if(this.props.board != null){
             return (
-                <table>
-                    <tr>
-                        <td colSpan={3}>
-                            {this.props.board.title}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{this.props.board.createdByUser.username}</td>
-                        <td>{this.props.board.createdDate}</td>
-                        <td>Views: {this.props.board.views}</td>
-                    </tr>
-                </table>
+                <div className='board-header'>
+                    <div><h2>{this.props.board.title}</h2></div>
+                    <div>
+                        Created by: {this.props.board.createdByUser.username}<br />
+                        {this.props.board.createdDate}
+                        &nbsp;Views: {this.props.board.views}                        
+                    </div>
+                </div>
             )
         } else {
             return (
-                <div>Loading...</div>
+                <h2>Loading...</h2>
             )
         }
         
@@ -90,9 +88,9 @@ class ListPosts extends React.Component {
                 )
                 i++;
             });
-            return ( <div>{posts}</div> );
+            return ( <ul>{posts}</ul> );
         } else {
-            return (<div>No Posts in this Board!</div>);
+            return (<div className='no-posts'>No Posts in this Board!</div>);
         }
     }
 }
@@ -100,7 +98,10 @@ class ListPosts extends React.Component {
 class ViewPost extends React.Component {
     render(){
         return(
-            <div>{this.props.post.message} by {this.props.post.createdByUser.username}</div>
+            <li>
+                <div>{this.props.post.message}</div>
+                <div>by {this.props.post.createdByUser.username} @ {this.props.post.createdDate} {this.props.post.createdTime}</div>
+            </li>
         )
     }
 

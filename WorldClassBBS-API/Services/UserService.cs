@@ -38,7 +38,7 @@ namespace WorldClassBBS.Services
 
             //validation
             if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
-                throw new InvalidCredentialsException("Username or Password in incorrect.");
+                throw new InvalidCredentialsException("Username or Password is incorrect.");
 
             UpdateLastLoginDate(user.UserId);
 

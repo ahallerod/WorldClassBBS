@@ -1,5 +1,6 @@
 import React from "react";
 import CreateBoardControl from './board-create-new.js';
+import {NavBarBoardMain} from './nav-bar.js'
 
 export default class BoardOverview extends React.Component {
     constructor() {
@@ -16,7 +17,8 @@ export default class BoardOverview extends React.Component {
 
     render() {
         return (
-            <div className="board-overview">
+            <div className="board-grid">
+                <NavBarBoardMain refresh={this.getBoards} />
                 <ul>
                     {this.state.rows}
                 </ul>
@@ -62,7 +64,7 @@ class BoardOneliner extends React.Component {
         return (
             <li className="board-item" onClick={this.onClickHandler}>
                 <div>{board.title} created by {board.createdByUser.username}</div>
-                <div>{board.noOfPosts} replies, {board.views} views</div>
+                <div>{board.createdDate} {board.createdTime} | {board.noOfPosts} replies, {board.views} views</div>
             </li>
         )
     }

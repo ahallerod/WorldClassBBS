@@ -1,40 +1,32 @@
 import React from "react";
 
 class NavBarBoardMain extends React.Component {
-    constructor(){
-        super();
+    onClickRefreshHandler = () => {
+        this.props.refresh();
     }
-
     render(){
         return (
-            <table>
-                <tr>
-                    <td>
-                        <button>Refresh</button>
-                    </td>
-                </tr>
-            </table>
+            <div className="nav-bar">
+                <button onClick={this.onClickRefreshHandler}>Refresh</button>
+            </div>
         )
     }
 }
 
 class NavBarViewBoard extends React.Component {
-    constructor(){
-        super();
-    }
-    onClickHandler = () => {
+    onClickBackHandler = () => {
         this.props.viewBoardMain();
+    }
+    onClickRefreshHandler = () => {
+        this.props.refresh();
     }
 
     render(){
         return (
-            <table>
-                <tr>
-                    <td>
-                        <button onClick={this.onClickHandler}>Back</button>
-                    </td>
-                </tr>
-            </table>
+            <div className="nav-bar">
+                <button onClick={this.onClickBackHandler}>Back</button>
+                <button onClick={this.onClickRefreshHandler}>Refresh</button>
+            </div>
         )
     }
 }

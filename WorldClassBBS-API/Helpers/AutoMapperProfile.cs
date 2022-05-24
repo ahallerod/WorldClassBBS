@@ -10,7 +10,9 @@ namespace WorldClassBBS.Helpers
     {
         public AutoMapperProfile()
         {
-            CreateMap<User, AuthenticateResponse>();
+            CreateMap<User, AuthenticateResponse>()
+                .ForMember(dest => dest.LastLoginDate, opt => opt.MapFrom(src => src.PreviousLogin.ToShortDateString()))
+                .ForMember(dest => dest.LastLoginTime, opt => opt.MapFrom(src => src.PreviousLogin.ToShortTimeString()));
             CreateMap<RegisterRequest, User>();
             CreateMap<User, ViewUser>();
 
@@ -20,7 +22,9 @@ namespace WorldClassBBS.Helpers
             CreateMap<Board, BoardWithPosts>();
             CreateMap<NewBoard, Board>();
 
-            CreateMap<Post, ViewPost>();
+            CreateMap<Post, ViewPost>()
+                .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate.ToShortDateString()))
+                .ForMember(dest => dest.CreatedTime, opt => opt.MapFrom(src => src.CreatedDate.ToShortTimeString()));
             CreateMap<NewPost, Post>();
 
         }

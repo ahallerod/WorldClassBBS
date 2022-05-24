@@ -23,7 +23,7 @@ class LoginControl extends React.Component {
                 <div className="login-grid">
                     <Logo />
                     <Registration />
-                    <button onClick={this.handleToggleClick}>Already have an account? Signin!</button>
+                    <button onClick={this.handleToggleClick} className="toggle-button">Already have an account? Signin!</button>
                 </div>
             );
         }
@@ -32,7 +32,7 @@ class LoginControl extends React.Component {
                 <div className="login-grid">
                     <Logo />
                     <Signin onSuccessfulSignin={this.props.onSuccessfulSignin} />
-                    <button onClick={this.handleToggleClick}>No account? Register!</button>
+                    <button onClick={this.handleToggleClick} className="toggle-button">No account? Register!</button>
                 </div>
             );
         }
@@ -53,28 +53,26 @@ class Signin extends React.Component {
 
     async handleSignin(e) {
         e.preventDefault();
-        try {
-            let res = await fetch("http://localhost:5100/User/signin", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: this.state.username,
-                    password: this.state.password
-                }),
-            });
-            let resJson = await res.json();
-            if (res.status === 200) {
-                localStorage.setItem("token", resJson.token);
-                this.props.onSuccessfulSignin(this.state.username);
-            } else if (res.status === 401) {
-                this.setState({
-                    failedSignin: true,
-                });
-            }
-        } catch (error) {
 
+        let res = await fetch("http://localhost:5100/User/signin", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            }),
+        });
+        
+        if (res.status === 200) {
+            let resJson = await res.json();
+            localStorage.setItem("token", resJson.token);
+            this.props.onSuccessfulSignin(this.state.username);
+        } else if (res.status === 401) {
+            this.setState({
+                failedSignin: true,
+            });
         }
     }
     handleInputChange(e) {
@@ -88,8 +86,8 @@ class Signin extends React.Component {
 
     render() {
         return (
-            <div className='login-grid'>
-                <h2>Signin</h2>
+            <div className='form-grid'>
+                <h2>Sign in</h2>
                 <form onSubmit={this.handleSignin}>
                     <label>Username:</label>
                     <input
@@ -112,7 +110,7 @@ class Signin extends React.Component {
                     <button type="submit">Sign in</button>
                 </form>
                 {this.state.failedSignin &&
-                    <span className="warning">Username or Password incorrect.</span>
+                    <span className="warning">Username or Password incorrect. Try again.</span>
                 }   
             </div>
         );

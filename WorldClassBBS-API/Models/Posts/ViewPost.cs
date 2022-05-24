@@ -7,5 +7,7 @@ namespace WorldClassBBS.Models.Posts
         public int Id { get; set; }
         public string Message { get; set; }
         public ViewUser CreatedByUser { get; set; }
+        public string CreatedDate { get; set; }
+        public string CreatedTime { get; set; }
     }
 }

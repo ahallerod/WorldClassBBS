@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/andreashallerod/Code/WorldClassBBS/IdentityServer/IdentityServer.csproj": {}
+    "D:\\Studier\\WorldClassBBS\\IdentityServer\\IdentityServer.csproj": {}
   },
   "projects": {
-    "/Users/andreashallerod/Code/WorldClassBBS/IdentityServer/IdentityServer.csproj": {
+    "D:\\Studier\\WorldClassBBS\\IdentityServer\\IdentityServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/andreashallerod/Code/WorldClassBBS/IdentityServer/IdentityServer.csproj",
+        "projectUniqueName": "D:\\Studier\\WorldClassBBS\\IdentityServer\\IdentityServer.csproj",
         "projectName": "IdentityServer",
-        "projectPath": "/Users/andreashallerod/Code/WorldClassBBS/IdentityServer/IdentityServer.csproj",
-        "packagesPath": "/Users/andreashallerod/.nuget/packages/",
-        "outputPath": "/Users/andreashallerod/Code/WorldClassBBS/IdentityServer/obj/",
+        "projectPath": "D:\\Studier\\WorldClassBBS\\IdentityServer\\IdentityServer.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "D:\\Studier\\WorldClassBBS\\IdentityServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/andreashallerod/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

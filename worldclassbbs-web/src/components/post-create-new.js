@@ -18,12 +18,11 @@ export default class NewPostControl extends React.Component {
 
     render() {
         return (
-            <table>
-                <thead>
-                    <tr onClick={this.handleToggleClick}><td colspan="2">Add Reply</td></tr>
-                </thead>
-                <CreateNewPost boardId={this.props.boardId} isInputVisible={this.state.isInputVisible} />
-            </table>
+            <div>
+                <button onClick={this.handleToggleClick} className="toggle-button">Add Reply</button>
+                <CreateNewPost boardId={this.props.boardId} isInputVisible={this.state.isInputVisible} onSubmit={this.props.onSubmit} />
+
+            </div>
         )
     }
 }
@@ -40,26 +39,22 @@ class CreateNewPost extends React.Component {
     render() {
         if (this.props.isInputVisible) {
             return (
-                <tbody>
-                    <tr>
-                        <td>
-                            <form onSubmit={this.addPost}>
-                                <label>Message:</label>
-                                <input
-                                    type="text"
-                                    id="message"
-                                    name="message"
-                                    value={this.state.title}
-                                    required
-                                    maxLength={70}
-                                    minLength={5}
-                                    onChange={this.handleInputChange}
-                                />
-                                <input type="submit" value="Post"></input>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
+                <div className='form-grid'>
+                    <form onSubmit={this.addPost}>
+                        <label>Message:</label>
+                        <input
+                            type="text"
+                            id="message"
+                            name="message"
+                            value={this.state.message}
+                            required
+                            maxLength={70}
+                            minLength={5}
+                            onChange={this.handleInputChange}
+                        />
+                        <button type="submit">Post</button>
+                    </form>
+                </div>
             )
         }
     }
@@ -68,7 +63,7 @@ class CreateNewPost extends React.Component {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            let res = fetch('http://localhost:5100/Post/new', {
+            fetch('http://localhost:5100/Post/new', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,6 +78,7 @@ class CreateNewPost extends React.Component {
             this.setState({
                 message: '',
             });
+            this.props.onSubmit();
         } catch (error) {
 
         }
