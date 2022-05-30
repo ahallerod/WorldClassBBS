@@ -23,14 +23,14 @@ export default class ViewBoard extends React.Component {
         )
     }
     componentDidMount(){
-        this.getBoards();
+        this.getBoard();
     }
 
     refresh() {
-        this.getBoards();
+        this.getBoard();
     }
 
-    getBoards() {
+    getBoard() {
         const token = localStorage.getItem("token");
         fetch('http://localhost:5100/Board/' + this.props.boardID, {
             method: "GET",

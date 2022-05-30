@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
+using WorldClassBBS.Authorization;
 using Microsoft.Extensions.Options;
 using WorldClassBBS.Helpers;
 using WorldClassBBS.Entities;
-using WorldClassBBS.Models.Users;
-using WorldClassBBS.Models.Boards;
 using WorldClassBBS.Models.Posts;
 using WorldClassBBS.Services;
 
@@ -36,6 +34,7 @@ namespace WorldClassBBS.Controllers
             var post = _postService.GetPostById(id);
             return Ok(post);
         }
+
 
         [HttpPost("new")]
         public IActionResult NewPost(NewPost model)

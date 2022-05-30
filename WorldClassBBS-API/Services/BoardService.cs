@@ -42,7 +42,7 @@ namespace WorldClassBBS.Services
         }
         public BoardWithPosts GetBoardById(int boardId)
         {
-            var board = _context.Boards.FirstOrDefault(x => x.BoardId == boardId);
+            var board = _context.Boards.Include(x => x.CreatedByUser).FirstOrDefault(x => x.BoardId == boardId);
             if (board == null)
                 throw new AppException("Board not found.");
             var model = new BoardWithPosts();
@@ -50,7 +50,7 @@ namespace WorldClassBBS.Services
             model.Board.CreatedByUser = _mapper.Map<ViewUser>(board.CreatedByUser);
             model.Board.NoOfPosts = _context.Posts.Where(x => x.BoardId == board.BoardId).Count();
             model.Posts = _mapper.Map<ViewPost[]>(
-                _context.Posts.Where(x => x.BoardId == board.BoardId)
+                _context.Posts.Include(x => x.CreatedByUser).Where(x => x.BoardId == board.BoardId).OrderByDescending(x => x.CreatedDate)
                 .AsEnumerable());
 
             IncreaseNoOfViews(board);

@@ -19,9 +19,10 @@ export default class NewPostControl extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleToggleClick} className="toggle-button">Add Reply</button>
+                <button onClick={this.handleToggleClick} className="toggle-button">
+                    Add Reply
+                </button>
                 <CreateNewPost boardId={this.props.boardId} isInputVisible={this.state.isInputVisible} onSubmit={this.props.onSubmit} />
-
             </div>
         )
     }
@@ -48,7 +49,7 @@ class CreateNewPost extends React.Component {
                             name="message"
                             value={this.state.message}
                             required
-                            maxLength={70}
+                            maxLength={140}
                             minLength={5}
                             onChange={this.handleInputChange}
                         />
@@ -78,7 +79,7 @@ class CreateNewPost extends React.Component {
             this.setState({
                 message: '',
             });
-            this.props.onSubmit();
+            //this.props.onSubmit();
         } catch (error) {
 
         }
