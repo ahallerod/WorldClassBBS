@@ -4,6 +4,7 @@ using WorldClassBBS.Entities;
 using WorldClassBBS.Models.Boards;
 using WorldClassBBS.Models.Users;
 using WorldClassBBS.Models.Posts;
+using Microsoft.EntityFrameworkCore;
 
 namespace WorldClassBBS.Services
 {
@@ -57,15 +58,18 @@ namespace WorldClassBBS.Services
         }
         public IEnumerable<ViewShortBoard> GetBoards(int index, int count, string sort)
         {
-            IQueryable<Board> query = _context.Boards;
+            IQueryable<Board> query = _context.Boards.Include(x => x.CreatedByUser).Where(x => !x.IsArchived).AsNoTracking();
+
             if (sort == "date")
                 query = query.OrderByDescending(x => x.CreatedDate);
             else
                 query = query.OrderByDescending(x => x.Views);
 
             var boards = query.Skip(index).Take(count);
+
             if (!boards.Any())
                 throw new AppException("No more boards to show.");
+
             var model = _mapper.Map<ViewShortBoard[]>(boards);
 
             foreach (var board in model)

@@ -34,7 +34,7 @@ namespace WorldClassBBS.Controllers
             var board = _boardService.GetBoardById(Id);
             return Ok(board);
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetBoards(int index = 0, int count = 10, string sort = "date")
         {

@@ -88,6 +88,5 @@ namespace WorldClassBBS.Services
             user.LastestLogin = DateTime.Now;
             _context.SaveChanges();
         }
-
     }
 }
