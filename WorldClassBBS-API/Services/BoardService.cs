@@ -50,7 +50,7 @@ namespace WorldClassBBS.Services
             model.Board.CreatedByUser = _mapper.Map<ViewUser>(board.CreatedByUser);
             model.Board.NoOfPosts = _context.Posts.Where(x => x.BoardId == board.BoardId).Count();
             model.Posts = _mapper.Map<ViewPost[]>(
-                _context.Posts.Include(x => x.CreatedByUser).Where(x => x.BoardId == board.BoardId).OrderByDescending(x => x.CreatedDate)
+                _context.Posts.Include(x => x.CreatedByUser).Where(x => x.BoardId == board.BoardId).OrderBy(x => x.CreatedDate)
                 .AsEnumerable());
 
             IncreaseNoOfViews(board);

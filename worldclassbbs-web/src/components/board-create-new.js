@@ -63,7 +63,7 @@ class CreateNewBoard extends React.Component {
     async addBoard(e) {
         e.preventDefault();
         const token = localStorage.getItem("token");
-        fetch('http://localhost:5100/Board/new2', {
+        fetch('http://localhost:5100/Board/new', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
