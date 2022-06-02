@@ -3,6 +3,7 @@ using WorldClassBBS.Entities;
 using WorldClassBBS.Models.Users;
 using WorldClassBBS.Models.Boards;
 using WorldClassBBS.Models.Posts;
+using WorldClassBBS.Models.Categories;
 
 namespace WorldClassBBS.Helpers
 {
@@ -27,6 +28,14 @@ namespace WorldClassBBS.Helpers
                 .ForMember(dest => dest.CreatedTime, opt => opt.MapFrom(src => src.CreatedDate.ToShortTimeString()));
             CreateMap<NewPost, Post>();
 
+            CreateMap<NewCategory, Category>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Name));
+            CreateMap<Category, DetailedViewCategory>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CategoryName))
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByUser));
+
+            CreateMap<Category, BriefViewCategory>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.CategoryName));
         }
     }
 }

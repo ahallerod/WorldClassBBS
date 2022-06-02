@@ -5,7 +5,6 @@ using WorldClassBBS.Authorization;
 using WorldClassBBS.Entities;
 using WorldClassBBS.Helpers;
 using WorldClassBBS.Models.Boards;
-using WorldClassBBS.Models.Posts;
 using WorldClassBBS.Services;
 
 namespace WorldClassBBS.Controllers
@@ -16,26 +15,23 @@ namespace WorldClassBBS.Controllers
     public class BoardController : ControllerBase
     {
         private readonly IBoardService _boardService;
-        private readonly IPostService _postService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
 
         public BoardController(
             IBoardService boardService,
-            IPostService postService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
             _boardService = boardService;
-            _postService = postService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetBoardById(int Id)
+        public IActionResult GetBoardById(int id)
         {
-            var board = _boardService.GetBoardById(Id);
+            var board = _boardService.GetBoardById(id);
             return Ok(board);
         }
         [HttpGet]
@@ -53,6 +49,13 @@ namespace WorldClassBBS.Controllers
         {
             var user = (User)HttpContext.Items["User"];
             _boardService.CreateBoard(model, user);
+            return Ok();
+        }
+
+        [HttpPut("add-category")]
+        public IActionResult AddCategory(AddCategory model)
+        {
+            _boardService.AddCategory(model.BoardId, model.CategoryId);
             return Ok();
         }
 

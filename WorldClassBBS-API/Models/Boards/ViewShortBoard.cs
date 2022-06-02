@@ -1,4 +1,5 @@
 ﻿using WorldClassBBS.Models.Users;
+using WorldClassBBS.Models.Categories;
 
 
 namespace WorldClassBBS.Models.Boards
@@ -12,5 +13,6 @@ namespace WorldClassBBS.Models.Boards
         public string CreatedDate { get; set; }
         public string CreatedTime { get; set; }
         public ViewUser CreatedByUser { get; set; }
+        public IEnumerable<BriefViewCategory> Categories { get; set; }
     }
 }

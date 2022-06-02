@@ -15,6 +15,7 @@ namespace WorldClassBBS.Services
         public IEnumerable<ViewShortBoard> GetBoards(int index, int count, string sort);
         public void EditBoard();
         public void ArchiveBoard(int boardId, int userId);
+        public void AddCategory(int boardId, int categoryId);
     }
     public class BoardService : IBoardService
     {
@@ -42,7 +43,10 @@ namespace WorldClassBBS.Services
         }
         public BoardWithPosts GetBoardById(int boardId)
         {
-            var board = _context.Boards.Include(x => x.CreatedByUser).FirstOrDefault(x => x.BoardId == boardId);
+            var board = _context.Boards
+                .Include(x => x.CreatedByUser)
+                .Include(x => x.Categories)
+                .FirstOrDefault(x => x.BoardId == boardId);
             if (board == null)
                 throw new AppException("Board not found.");
             var model = new BoardWithPosts();
@@ -50,15 +54,22 @@ namespace WorldClassBBS.Services
             model.Board.CreatedByUser = _mapper.Map<ViewUser>(board.CreatedByUser);
             model.Board.NoOfPosts = _context.Posts.Where(x => x.BoardId == board.BoardId).Count();
             model.Posts = _mapper.Map<ViewPost[]>(
-                _context.Posts.Include(x => x.CreatedByUser).Where(x => x.BoardId == board.BoardId).OrderBy(x => x.CreatedDate)
-                .AsEnumerable());
+                _context.Posts
+                    .Include(x => x.CreatedByUser)
+                    .Where(x => x.BoardId == board.BoardId)
+                    .OrderBy(x => x.CreatedDate)
+                    .AsEnumerable());
 
             IncreaseNoOfViews(board);
             return model;
         }
         public IEnumerable<ViewShortBoard> GetBoards(int index, int count, string sort)
         {
-            IQueryable<Board> query = _context.Boards.Include(x => x.CreatedByUser).Where(x => !x.IsArchived).AsNoTracking();
+            IQueryable<Board> query = 
+                _context.Boards
+                    .Include(x => x.CreatedByUser)
+                    .Include(x => x.Categories)
+                    .Where(x => !x.IsArchived).AsNoTracking();
 
             if (sort == "date")
                 query = query.OrderByDescending(x => x.CreatedDate);
@@ -78,6 +89,16 @@ namespace WorldClassBBS.Services
             }
 
             return model;
+        }
+
+        public void AddCategory(int boardId, int categoryId)
+        {
+            var board = _context.Boards.Include(x => x.Categories).SingleOrDefault(x => x.BoardId == boardId);
+            var category = _context.Categories.SingleOrDefault(x => x.CategoryId == categoryId);
+            board.Categories.Add(category);
+
+            _context.Update(board);
+            _context.SaveChanges();
         }
 
         public void EditBoard()

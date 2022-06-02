@@ -15,6 +15,7 @@ namespace WorldClassBBS.Helpers
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Board> Boards { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -67,6 +68,8 @@ namespace WorldClassBBS.Helpers
                     .WithOne(x => x.Board)
                     .HasForeignKey(x => x.BoardId)
                     .OnDelete(DeleteBehavior.NoAction);
+                entity.HasMany(x => x.Categories)
+                    .WithMany(x => x.Boards);
 
             });
 
