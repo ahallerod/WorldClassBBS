@@ -6,12 +6,15 @@
       <File FileName="WorldClassBBS-API/appsettings.json" Line="14" Column="81" />
       <File FileName="WorldClassBBS-API/Program.cs" Line="75" Column="1" />
       <File FileName="WorldClassBBS-API/Services/UserService.cs" Line="61" Column="1" />
+      <File FileName="WorldClassBBS-API/Services/BoardService.cs" Line="50" Column="84" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WorldClassBBS" expanded="True">
-            <Node name="WorldClassBBS-API" expanded="True" />
+            <Node name="WorldClassBBS-API" expanded="True">
+              <Node name="Services" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
