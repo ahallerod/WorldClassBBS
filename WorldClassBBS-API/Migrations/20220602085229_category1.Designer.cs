@@ -12,8 +12,8 @@ using WorldClassBBS.Helpers;
 namespace WorldClassBBS_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220530145341_final")]
-    partial class final
+    [Migration("20220602085229_category1")]
+    partial class category1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,21 @@ namespace WorldClassBBS_API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("BoardCategory", b =>
+                {
+                    b.Property<int>("BoardsBoardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriesCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BoardsBoardId", "CategoriesCategoryId");
+
+                    b.HasIndex("CategoriesCategoryId");
+
+                    b.ToTable("BoardCategory");
+                });
 
             modelBuilder.Entity("WorldClassBBS.Entities.Board", b =>
                 {
@@ -56,6 +71,32 @@ namespace WorldClassBBS_API.Migrations
                     b.HasIndex("CreatedByUserId");
 
                     b.ToTable("Boards");
+                });
+
+            modelBuilder.Entity("WorldClassBBS.Entities.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("WorldClassBBS.Entities.Post", b =>
@@ -134,12 +175,38 @@ namespace WorldClassBBS_API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("BoardCategory", b =>
+                {
+                    b.HasOne("WorldClassBBS.Entities.Board", null)
+                        .WithMany()
+                        .HasForeignKey("BoardsBoardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WorldClassBBS.Entities.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("WorldClassBBS.Entities.Board", b =>
                 {
                     b.HasOne("WorldClassBBS.Entities.User", "CreatedByUser")
                         .WithMany("Boards")
                         .HasForeignKey("CreatedByUserId")
                         .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CreatedByUser");
+                });
+
+            modelBuilder.Entity("WorldClassBBS.Entities.Category", b =>
+                {
+                    b.HasOne("WorldClassBBS.Entities.User", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("CreatedByUser");

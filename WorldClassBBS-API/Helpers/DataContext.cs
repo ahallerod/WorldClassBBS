@@ -67,6 +67,18 @@ namespace WorldClassBBS.Helpers
                     .WithOne(x => x.Board)
                     .HasForeignKey(x => x.BoardId)
                     .OnDelete(DeleteBehavior.NoAction);
+
+            });
+
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.HasKey("CategoryId");
+                entity.Property("CategoryName")
+                    .IsRequired()
+                    .HasMaxLength(20);
+                entity.Property("CreatedByUserId").IsRequired();
+                entity.HasMany(x => x.Boards)
+                    .WithMany(x => x.Categories);
             });
         }
 
