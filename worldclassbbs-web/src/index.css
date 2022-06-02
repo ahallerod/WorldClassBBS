@@ -133,7 +133,19 @@ input {
     width: 100%;
 }
 
+.categories {
+    position: relative;
+}
 
+.CategoryList {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    background-color: white;
+    color:black;
+}
 
 .no-posts {
     font-weight: 900;

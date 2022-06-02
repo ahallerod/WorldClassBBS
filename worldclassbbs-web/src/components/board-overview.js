@@ -1,6 +1,7 @@
 import React from "react";
 import CreateBoardControl from './board-create-new.js';
-import {NavBarBoardMain} from './nav-bar.js'
+import {NavBarBoardMain} from './nav-bar.js';
+import CategoryDropDown from './category.js';
 
 export default class BoardOverview extends React.Component {
     constructor() {
@@ -8,7 +9,7 @@ export default class BoardOverview extends React.Component {
         this.state = {
             boards: [],
             sort: 'date',
-        }
+        };
         this.getBoards = this.getBoards.bind(this);
     }
     componentDidMount() {
@@ -56,16 +57,30 @@ export default class BoardOverview extends React.Component {
 }
 
 class BoardOneliner extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            categoryDropDown: '',
+        }
+    };
     onClickHandler = () => {
         this.props.viewBoardCallback(this.props.board.boardId);
-    }
+    };
     render() {
         const board = this.props.board;
         return (
             <li className="board-item" onClick={this.onClickHandler}>
                 <div>{board.title} created by {board.createdByUser.username}</div>
-                <div>{board.createdDate} {board.createdTime} | {board.noOfPosts} replies, {board.views} views</div>
+                <div>{board.createdDate} {board.createdTime} | {board.noOfPosts} replies, {board.views} views {this.state.categoryDropDown}</div>
             </li>
         )
+    };
+    componentDidMount() {
+        if(this.props.board.categories.length > 0)
+            this.setState({
+                categoryDropDown: <CategoryDropDown categories={this.props.board.categories} />
+            })
     }
+    
+
 }
