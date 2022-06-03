@@ -1,0 +1,290 @@
+﻿++Solution 'WorldClassBBS' ‎(3 of 3 projects)
+i:{00000000-0000-0000-0000-000000000000}:WorldClassBBS.sln
+++WorldClassBBS-API
+i:{00000000-0000-0000-0000-000000000000}:WorldClassBBS-API
+++Connected Services 
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81157
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:>81158
+++Dependencies
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81155
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:>81156
+++Properties
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\properties\
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\properties\
+++launchSettings.json
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\properties\launchsettings.json
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\properties\launchsettings.json
+++Authorization
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\authorization\
+++AllowAnonymousAttribute.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\authorization\allowanonymousattribute.cs
+++AuthorizeAttribute.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\authorization\authorizeattribute.cs
+++JwtMiddleware.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\authorization\jwtmiddleware.cs
+++JwtUtils.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\authorization\jwtutils.cs
+++Controllers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\controllers\
+++BoardController.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\controllers\boardcontroller.cs
+++CategoryController.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\controllers\categorycontroller.cs
+++PostController.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\controllers\postcontroller.cs
+++UserController.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\controllers\usercontroller.cs
+++Entities
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\entities\
+++Board.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\entities\board.cs
+++Category.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\entities\category.cs
+++Post.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\entities\post.cs
+++User.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\entities\user.cs
+++Helpers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\
+++AppException.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\appexception.cs
+++AppSettings.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\appsettings.cs
+++AutoMapperProfile.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\automapperprofile.cs
+++DataContext.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\datacontext.cs
+++ErrorHandlerMiddleware.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\errorhandlermiddleware.cs
+++InvalidCredentialsException.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\helpers\invalidcredentialsexception.cs
+++Migrations
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\
+++20220602085229_category1.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\20220602085229_category1.cs
+++20220602094024_category2.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\20220602094024_category2.cs
+++DataContextModelSnapshot.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\datacontextmodelsnapshot.cs
+++Models
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\
+++Boards
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\boards\
+++AddCategory.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\boards\addcategory.cs
+++BoardWithPosts.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\boards\boardwithposts.cs
+++NewBoard.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\boards\newboard.cs
+++ViewShortBoard.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\boards\viewshortboard.cs
+++Categories
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\categories\
+++BriefViewCategory.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\categories\briefviewcategory.cs
+++DetailedViewCategory.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\categories\detailedviewcategory.cs
+++NewCategory.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\categories\newcategory.cs
+++Posts
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\posts\
+++NewPost.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\posts\newpost.cs
+++ViewPost.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\posts\viewpost.cs
+++Users
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\
+++AuthenticateRequest.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\authenticaterequest.cs
+++AuthenticateResponse.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\authenticateresponse.cs
+++RegisterRequest.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\registerrequest.cs
+++ViewDetailedUser.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\viewdetaileduser.cs
+++ViewUser.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\models\users\viewuser.cs
+++Services
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\services\
+++BoardService.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\services\boardservice.cs
+++CategoryService.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\services\categoryservice.cs
+++PostService.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\services\postservice.cs
+++UserService.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\services\userservice.cs
+++appsettings.json
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\appsettings.json
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\appsettings.json
+++Program.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\program.cs
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\program.cs
+++No service dependencies discovered
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81159
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:>81160
+++Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:analyzers
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:analyzers
+++Frameworks
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:frameworks
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:frameworks
+++Packages
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:packages
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:packages
+++20220602085229_category1.Designer.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\20220602085229_category1.designer.cs
+++20220602094024_category2.Designer.cs
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\migrations\20220602094024_category2.designer.cs
+++appsettings.Development.json
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\appsettings.development.json
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\appsettings.development.json
+++Microsoft.AspNetCore.Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\users\andre\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.5\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.5\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.5\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.5\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\microsoft.aspnetcore.app
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:d:\studier\worldclassbbs\worldclassbbs-api\microsoft.netcore.app
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\microsoft.netcore.app
+++AutoMapper (11.0.1)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81190
+++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81186
+++BCrypt.Net-Next (4.0.3)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81189
+++IdentityServer4.AccessTokenValidation (3.0.1)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81185
+++Microsoft.EntityFrameworkCore (6.0.5)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81183
+++Microsoft.EntityFrameworkCore.Design (6.0.5)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81187
+++Microsoft.EntityFrameworkCore.Sqlite (6.0.5)
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.5)
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81184
+++Swashbuckle.AspNetCore (6.2.3)
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:>81171
+i:{974662f1-2747-49a2-a2fb-199ce0e689ea}:>81221
+++IdentityServer
+i:{00000000-0000-0000-0000-000000000000}:IdentityServer
+++Config
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\config\
+++tempkey.jwk
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\tempkey.jwk
+++IdConfig.cs
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:d:\studier\worldclassbbs\identityserver\config\idconfig.cs
+++IdentityServer4 (4.1.2)
+i:{6ac5d639-388b-4ab7-9c6e-143363bc3a4f}:>81172
+++WorldClassBBS-Web
+i:{00000000-0000-0000-0000-000000000000}:WorldClassBBS-Web
+++npm
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:>80906
+++.vscode
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\.vscode\
+++public
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\
+++src
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\
+++.gitignore
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\.gitignore
+++nuget.config
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\nuget.config
+++package.json
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\package.json
+++package-lock.json
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\package-lock.json
+++README.md
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\readme.md
+++WorldClassBBS-Web.esproj.user
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\worldclassbbs-web.esproj.user
+++launch.json
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\.vscode\launch.json
+++favicon.ico
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\favicon.ico
+++index.html
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\index.html
+++logo192.png
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\logo192.png
+++logo512.png
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\logo512.png
+++manifest.json
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\manifest.json
+++robots.txt
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\public\robots.txt
+++components
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\
+++App.css
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\app.css
+++App.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\app.js
+++App.test.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\app.test.js
+++index.css
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\index.css
+++index.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\index.js
+++logo.svg
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\logo.svg
+++reportWebVitals.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\reportwebvitals.js
+++setupTests.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\setuptests.js
+++bbs.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\bbs.js
+++board-control.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\board-control.js
+++board-create-new.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\board-create-new.js
+++board-overview.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\board-overview.js
+++board-view.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\board-view.js
+++category.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\category.js
+++logo.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\logo.js
+++nav-bar.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\nav-bar.js
+++post-create-new.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\post-create-new.js
+++registration.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\registration.js
+++signin.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\signin.js
+++user-components.js
+i:{389495a2-97b9-41a1-9b7f-f417e6cf6d37}:d:\studier\worldclassbbs\worldclassbbs-web\src\components\user-components.js
+++Swashbuckle.AspNetCore (6.3.1)
+++SQLite (3.13.0)

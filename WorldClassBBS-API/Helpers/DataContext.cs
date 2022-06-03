@@ -87,7 +87,18 @@ namespace WorldClassBBS.Helpers
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
+            switch (Configuration.GetValue(typeof(String), "DatabaseServer"))
+            {
+                case "SQLServer":
+                    options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
+                    break;
+                case "SQLite":
+                    options.UseSqlite(Configuration.GetConnectionString("SQLite"));
+                    break;
+                default:
+                    throw new Exception("No DB Server specified");
+            }
+
         }
     }
 }
